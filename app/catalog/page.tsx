@@ -1,10 +1,11 @@
 import React from "react";
+import Header from "../components/Header";
 
 export default function Page() {
   return (
-    <>
+    <div className="w-full">
       {/* Buscador */}
-      <div>Buscador</div>
+      <Header></Header>
       {/* Cuerpo */}
       <div>
         {/* Categorias - ordenar por .*/}
@@ -12,6 +13,6 @@ export default function Page() {
         {/* Productos */}
         <div>Todos los productos</div>
       </div>
-    </>
+    </div>
   );
 }
