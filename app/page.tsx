@@ -2,10 +2,8 @@ import Image from "next/image";
 import "@/app/static/CSS/home.css";
 import Link from "next/link";
 import logo from "@/app/static/Img/Logo.jpeg";
-import { ImWhatsapp } from "react-icons/im";
 import { SlOptionsVertical } from "react-icons/sl";
 import { ICON_WIDTH } from "./constants/constants";
-import { LiaStoreAltSolid } from "react-icons/lia";
 import { FaInstagram, FaTiktok, FaWhatsapp, FaStore } from "react-icons/fa6";
 export default function Home() {
   return (
