@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Product() {
   return (
-    <>
+  
       <Link href={"product/1"}  className="product-container">
       <div className="cursor-pointer">
         <div>
@@ -41,7 +41,7 @@ export default function Product() {
         </div>
       </div>
     </Link>
-    </>
+    
     
   
   );

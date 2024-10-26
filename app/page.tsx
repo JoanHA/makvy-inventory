@@ -3,7 +3,7 @@ import "@/app/static/CSS/home.css";
 import Link from "next/link";
 import logo from "@/app/static/Img/Logo.jpeg";
 import { SlOptionsVertical } from "react-icons/sl";
-import { ICON_WIDTH } from "./constants/constants";
+import { ICON_WIDTH } from "@/app/constants/constants";
 import { FaInstagram, FaTiktok, FaWhatsapp, FaStore } from "react-icons/fa6";
 export default function Home() {
   return (
@@ -31,7 +31,7 @@ export default function Home() {
             id="options-container"
             className="grid  md:grid-cols-1 sm:w-100 sm:h-90 grid-cols-2 gap-6 w-full p-0 h-full"
           >
-            <div className="+ link-container max-md:h-[170px] ">
+            <div className="link-container max-md:h-[170px] ">
               <Link
                 href={"/catalog"}
                 className="home-options w-full h-full text-center flex  md:h-[70px] "

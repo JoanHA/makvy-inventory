@@ -1,11 +1,13 @@
 import React from "react";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import ProductsContainer from "../components/ProductsContainer";
+import Header  from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
+import ProductsContainer from "../../components/ProductsContainer";
+import SecondaryHeader from "../../components/ui/AppBar";
 
 export default function Page() {
   return (
     <div className="w-full flex flex-col ">
+      <SecondaryHeader></SecondaryHeader>
       <Header></Header>
       <div className="max-w-[1140px] self-center">
         <div className=" flex  justify-center gap-2">
