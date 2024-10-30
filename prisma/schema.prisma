@@ -12,7 +12,7 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-model Users {
+model users {
   id      Int      @id @default(autoincrement())
   username    String @unique
   role String
@@ -22,31 +22,31 @@ model Users {
   updatedAt DateTime @updatedAt
   
 }
-model Products{
+model products{
     id      Int      @id @default(autoincrement())
     reference String 
-    name String
-    price Float
-    boughtPrice Float
-    description String
-    CategoryId Int
-    quantity Int
+    name String?
+    price Float?
+    boughtPrice Float?
+    description String?
+    categoryId Int?
     status Int
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
-model Categories{
+model categories{
     id      Int      @id @default(autoincrement())
     name String
     status Int
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
-model Images{
+model images{
   id      Int      @id @default(autoincrement())
   productId Int
-  status Int
-  imageUrl String
+  status Int?
+  type String?
+  imageUrl String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -60,15 +60,15 @@ model param_types{
 model params {
   id      Int      @id @default(autoincrement())
   paramTypeId Int
-  productId Int
+  productId Int?
   status Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 model carts{
   id      Int      @id @default(autoincrement())
-  userId Int
-  productId Int
+  userId Int?
+  productId Int?
   quantity Int
   status Int
   createdAt DateTime @default(now())
