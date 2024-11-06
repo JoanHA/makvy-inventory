@@ -6,6 +6,7 @@ import path from "path";
 import { writeFileSync } from "fs";
 import { v2 as cloudinary } from "cloudinary";
 
+
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME || "",
   api_key: process.env.API_KEY || "",
@@ -54,25 +55,46 @@ export async function POST(req: Request) {
         });
       }
     }
-    //Guardar informacion de las imagenes en la base de datos 
-     await db.images.createManyAndReturn({
+    //Guardar informacion de las imagenes en la base de datos
+    await db.images.createManyAndReturn({
       data: savedImages.map((image) => ({
         productId: image.productId,
         type: image.type,
         imageUrl: image.imageUrl,
-        status: 1, 
+        status: 1,
       })),
     });
 
     return NextResponse.json({
       msg: "Producto guardado con exito!",
-      status:200,
+      status: 200,
     });
   } catch (error) {
     return NextResponse.json({
       error,
-      msg:"Hubo un error inesperado, intenta mas tarde...",
-      status:500
+      msg: "Hubo un error inesperado, intenta mas tarde...",
+      status: 500,
+    });
+  }
+}
+
+export async function GET() {
+  try {
+    const products = await db.$queryRaw`
+  SELECT p.*, i."imageUrl", categories.name as categoryName FROM products p 
+    LEFT JOIN images i on i."productId" = p.id
+    LEFT JOIN categories on categories.id = p."categoryId" 
+    `;
+    console.log(products);
+    return NextResponse.json({
+      products: products,
+      status: 200,
+    });
+  } catch (error) {
+    return NextResponse.json({
+      error,
+      msg: "Hubo un error inesperado, intenta mas tarde...",
+      status: 500,
     });
   }
 }

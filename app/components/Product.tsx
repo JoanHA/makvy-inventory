@@ -1,18 +1,21 @@
-import Image from "next/image";
+
 import Link from "next/link";
 import React from "react";
+import { Products } from "../api/interfaces/product.interface";
+import Image from "next/image";
 
-export default function Product() {
+export default function Product({product}: {product:Products}) {
+
   return (
   
-      <Link href={"product/1"}  className="product-container">
+      <Link href={`product/${product?.id}`}  className="product-container">
       <div className="cursor-pointer">
         <div>
           <div className="relative">
             <div>
               <div className="product-image">
                 <div className="image-wrapper">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kyte-7c484.appspot.com/o/sTMnt7vy0ZWE0Nue3CEDtjCyy183%2Fthumb_280_37C3194F-9F41-48A6-B854-3A8141FA445D.jpg?alt=media" />
+                  <img src={product?.imageUrl} alt="Imagen del producto" />
                 </div>
               </div>
             </div>
@@ -22,19 +25,19 @@ export default function Product() {
               <div className="product-top-content">
                 <div className="product-title-container flex flex-col ">
                   <div className="">
-                    <div className="product-title ">Gafas </div>
+                    <div className="product-title ">{product?.name} </div>
                   </div>
                   <div className="flex  flex-row  product-sub-title">
-                    <div className="grow">Accessorios</div>
-                    <div>COD LN011</div>
+                    <div className="grow">{product?.categoryname}</div>
+                    <div>{product?.reference}</div>
                   </div>
                 </div>
                 <div className="product-price-container mt-2">
-                  <h4>30.000 COP</h4>
+                  <h4>{product?.price} COP</h4>
                 </div>
               </div>
               <div className="product-desc">
-                <p></p>
+                <p>{product?.description}</p>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-export interface Product{
+export type Product ={
     name:string;
     reference:string;
     description?: string;
@@ -14,3 +14,18 @@ export interface Image {
     url?:string;
     lastModified?:string;
 }
+
+export interface Products {
+    id: number;
+    reference: string;
+    name: string;
+    price: number;
+    boughtPrice: number;
+    description: string;
+    categoryId: number;
+    status: number;
+    createdAt: Date;
+    updatedAt: Date;
+    imageUrl: string;
+    categoryname: string;
+  }
