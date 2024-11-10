@@ -7,11 +7,11 @@
 .product-container {
   flex: none;
   width: 33.3333333333%;
-  padding: 0.80rem;
+  padding: 0.8rem;
   z-index: 1;
 }
-.product-container:hover{
-    box-shadow: 1px 2px 5px 5px#e2e2e2;
+.product-container:hover {
+  box-shadow: 1px 2px 5px 5px#e2e2e2;
 }
 body {
   color: #4a4a4a;
@@ -20,56 +20,59 @@ body {
   line-height: 1.5;
 }
 
+.product-image {
+  height: 220px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.image-wrapper img {
+  height: auto;
 
-.product-image{
-   height: 220px; 
-   position: relative;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-.image-wrapper{
-display: flex;
-align-items: center;
-position: relative;
-height: 100%;
-}
-.image-wrapper img{
-    height: auto;
-    max-width: 100% !important;
-    max-height: 100% !important;
 
-    flex-shrink: 0;
-    display: block;
-    mix-blend-mode: multiply;
-    opacity: 1;
-    border-radius: 6px;
+  flex-shrink: 0;
+  display: block;
+  mix-blend-mode: multiply;
+  opacity: 1;
+  border-radius: 6px;
 }
-.product-content{
-    padding: 5px 15px 15px;
+.product-content {
+  padding: 5px 15px 15px;
 }
-.product-top-content
-{
-    margin: 10px 0 5px;
+.product-top-content {
+  margin: 10px 0 5px;
 }
-.product-title{
-    font-weight: 500;
-    word-break: break-word;
+.product-title {
+  font-weight: 500;
+  word-break: break-word;
 }
-.product-desc p{
-    max-height: 60px;
-    overflow: hidden;
-    font-size: 12px;
+.product-desc p {
+  max-height: 50px;
+  overflow: hidden;
+  font-size: 12px;
+  display: -webkit-box;        /* Usa un contenedor flex para soporte en navegadores */
+  -webkit-box-orient: vertical; /* Orientación vertical del contenedor flex */
+  -webkit-line-clamp: 3;  
+  line-clamp: 3;  
+  overflow: hidden;       
+  text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
 }
-.product-sub-title{
-    font-size: small;
-    color: var(--secondary-title-color); 
+.product-sub-title {
+  font-size: small;
+  color: var(--secondary-title-color);
 }
-.product-price-container h4{
-    margin: 0;
-    font-size: 1.25rem;
-    color: var(--price-color);
-
+.product-price-container h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--price-color);
 }
 /* .description-container p {
     white-space: pre; /* Mantiene los saltos de línea del texto 

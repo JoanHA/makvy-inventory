@@ -5,16 +5,13 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import logo from "@/app/static/Img/Logo.jpeg";
 import Image from "next/image";
@@ -62,7 +59,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SecondaryHeader() {
+export default function SecondaryHeader({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -166,75 +167,96 @@ export default function SecondaryHeader() {
   );
 
   return (
-    <Box>
+    <Box className="w-full">
       <AppBar
-        className="flex justify-between items-center"
+        className="flex justify-between items-center w-full"
         position="static"
         sx={{
           backgroundColor: "white",
           color: "#232323",
+          minHeight: "96px",
+          boxShadow: "0px 1px 2px lightgray",
         }}
       >
-        <Toolbar className="flex-1 shrink">
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          ></IconButton>
-          <Image
-            src={logo}
-            alt="Page logo"
-            height={60}
-            className="object-cover border-none "
-          ></Image>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} className="self-end" />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={0} color="error">
-                <LocalMallIcon />
-              </Badge>
-            </IconButton>
+        {children ? (
+          <Toolbar className="flex-1 shrink ">
+            {children}
+            <Image
+              src={logo}
+              alt="Page logo"
+              height={60}
+              className="object-cover border-none "
+            ></Image>
+          </Toolbar>
+        ) : (
+          <Toolbar className="flex-1 shrink flex  w-1/2 gap-2">
+            <div className="w-full flex items-center">
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                sx={{ mr: 2 }}
+              ></IconButton>
 
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
-        </Toolbar>
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ "aria-label": "search" }}
+                />
+              </Search>
+              <Box sx={{ flexGrow: 1 }} className="self-end" />
+              <div className="flex gap-5">
+                <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                  <IconButton
+                    size="large"
+                    aria-label="show 4 new mails"
+                    color="inherit"
+                  >
+                    <Badge badgeContent={0} color="error">
+                      <LocalMallIcon />
+                    </Badge>
+                  </IconButton>
+
+                  <IconButton
+                    size="large"
+                    edge="end"
+                    aria-label="account of current user"
+                    aria-controls={menuId}
+                    aria-haspopup="true"
+                    onClick={handleProfileMenuOpen}
+                    color="inherit"
+                  >
+                    <AccountCircle />
+                  </IconButton>
+                </Box>
+
+                <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                  <IconButton
+                    size="large"
+                    aria-label="show more"
+                    aria-controls={mobileMenuId}
+                    aria-haspopup="true"
+                    onClick={handleMobileMenuOpen}
+                    color="inherit"
+                  >
+                    <MoreIcon />
+                  </IconButton>
+                </Box>
+
+                <Image
+                  src={logo}
+                  alt="Page logo"
+                  height={60}
+                  className="object-cover border-none "
+                ></Image>
+              </div>
+            </div>
+          </Toolbar>
+        )}
       </AppBar>
       {renderMobileMenu}
       {renderMenu}

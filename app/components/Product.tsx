@@ -15,7 +15,7 @@ export default function Product({product}: {product:Products}) {
             <div>
               <div className="product-image">
                 <div className="image-wrapper">
-                  <img src={product?.imageUrl} alt="Imagen del producto" />
+                  <Image src={product?.imageUrl} alt="Imagen del producto" fill={true}    sizes="(max-width: 600px) 100vw, (max-width: 100px) 50vw, 33vw"  objectFit="contain"/>
                 </div>
               </div>
             </div>
@@ -37,7 +37,7 @@ export default function Product({product}: {product:Products}) {
                 </div>
               </div>
               <div className="product-desc">
-                <p>{product?.description}</p>
+                <p className="max-h-[90px]">{product?.description}</p>
               </div>
             </div>
           </div>

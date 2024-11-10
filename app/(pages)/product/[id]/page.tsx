@@ -1,22 +1,32 @@
-import Header from "@/app/components/Header";
-import { Button, ButtonGroup, Divider } from "@mui/material";
+"use client";
+import { Products } from "@/app/api/interfaces/product.interface";
+
+import SecondaryHeader from "@/app/components/ui/AppBar";
+import { Button, Divider } from "@mui/material";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useParams } from "next/navigation";
+
+import React, { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { IoChevronBackSharp } from "react-icons/io5";
 
-export default function page() {
-  const description = ` Medidas: 14 cm de alto x 8 cm de ancho x 22 cm de longitud✨💜.
-                      Color: Blanco .
-                      Tipo de tirantes: ajustables, Asa superior 
-                      Tipo de Estampado: Acolchado 
-                      Tipo: Bolso cuadrado 
-                      Composición: 100% Poliéster 
-                       Material: Cuerina`;
+export default function Page() {
+  const [product, setProduct] = useState<Products>();
+  const {id} = useParams()
+  const getProduct = async () => {
+    const res = await axios.get(`/api/products/${id}`);
+    setProduct(res.data.product);
+    console.log(res.data.product);
+  };
+  useEffect(() => {
+    getProduct();
+  }, []);
+
   return (
     <div>
-      <Header>
+        <SecondaryHeader>
         <Link href="/catalog">
           <div>
             <Button variant="text" className="flex gap-2">
@@ -25,23 +35,22 @@ export default function page() {
             </Button>
           </div>
         </Link>
-      </Header>
+        </SecondaryHeader>
       <div>
         <div
           className="flex flex-row gap-1 justify-center p-5"
           style={{ margin: "0 auto" }}
         >
           <div className="p-4 mx-2">
-            <div>
-              <div>
+            <div className="max-w-[300px]">
+              <div className="image-wrapper">
                 <Image
                   sizes="100vw"
-                  src={
-                    "https://firebasestorage.googleapis.com/v0/b/kyte-7c484.appspot.com/o/sTMnt7vy0ZWE0Nue3CEDtjCyy183%2FDF43B882-54D4-4683-B4A7-C40432039EC4.jpg?alt=media"
-                  }
+                  src={product?.imageUrl || ""}
                   alt="Product image"
                   width={555}
                   height={555}
+                  className=" rounded-lg"
                 ></Image>
               </div>
             </div>
@@ -55,25 +64,25 @@ export default function page() {
               <div className="flex flex-col ">
                 <div className="flex gap-1">
                   <div>
-                    <p className="m-0">BLANCOS🤍</p>
+                    <p className="m-0">{product?.categoryname}</p>
                   </div>
                   <span>•</span>
                   <div>
-                    <p className="m-0"> COD. LB0049</p>
+                    <p className="m-0">{product?.reference}</p>
                   </div>
                 </div>
                 <div>
-                  <h2 className="m-0">Bolso acolchado blanco🤍</h2>
+                  <h2 className="m-0">{product?.name}</h2>
                 </div>
                 <div>
-                  <h4 className="m-0">$ 75.000,00</h4>
+                  <h4 className="m-0">$ {product?.price} COP</h4>
                 </div>
               </div>
               <Divider />
               <div className="description-container flex-1">
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: description.replace(/\n/g, "<br/>"),
+                    __html: product?.description.replace(/\n/g, "<br/>") || "",
                   }}
                 ></p>
               </div>

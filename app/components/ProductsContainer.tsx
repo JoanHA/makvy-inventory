@@ -1,21 +1,22 @@
 "use client";
+import { cache } from 'react'
 import React, { useEffect, useState } from "react";
 import Product from "./Product";
 import "@/app/static/CSS/Products.css";
 
 import axios from "axios";
-import { products } from "@prisma/client";
+import { Products } from "../api/interfaces/product.interface";
 export default function ProductsContainer() {
-  const [products, setProducts] = useState<Array<products>>([]);
+  const [products, setProducts] = useState<Array<Products>>([]);
 
-  const getProducts = async () => {
+  const getProducts =  cache( async() => {
     try {
       const response = await axios.get("/api/products");
       setProducts(response.data.products);
     } catch (error) {
       console.error(error);
     }
-  };
+  });
   useEffect(() => {
     getProducts();
   }, []);

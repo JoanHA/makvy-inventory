@@ -123,20 +123,20 @@ export default function ProfileSidebar({
   };
 const titles = [
   {
-    header:"Productos",
-    link:"/products"
-  },
-  {
     header:"Perfil",
     link:"/"
+  },
+  {
+    header:"Productos",
+    link:"/products"
   },
   {
     header:"Agregar productos",
     link:"/products/add"
   },
   {
-    header:"Drafts",
-    link:"products"
+    header:"Categorias",
+    link:"/categories"
   },
 
 ]

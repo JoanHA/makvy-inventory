@@ -81,11 +81,10 @@ export async function POST(req: Request) {
 export async function GET() {
   try {
     const products = await db.$queryRaw`
-  SELECT p.*, i."imageUrl", categories.name as categoryName FROM products p 
+    SELECT p.*, i."imageUrl", categories.name as categoryName FROM products p 
     LEFT JOIN images i on i."productId" = p.id
     LEFT JOIN categories on categories.id = p."categoryId" 
     `;
-    console.log(products);
     return NextResponse.json({
       products: products,
       status: 200,
