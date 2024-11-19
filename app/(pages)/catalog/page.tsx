@@ -10,7 +10,9 @@ export default function Page() {
  
   return (
     <div className="w-full flex flex-col ">
-      <SecondaryHeader></SecondaryHeader>
+      <SecondaryHeader>
+        {""}
+      </SecondaryHeader>
 
       <div className="max-w-[1140px] self-center">
         <div className=" flex  justify-center gap-2">
