@@ -1,10 +1,14 @@
-"user server";
+"use server";
 
 import { signupShema } from "@/app/_lib/definitions";
 import bcrypt from "bcrypt";
 import db from "@/app/api/lib/prisma";
 import { createSession } from "@/app/_lib/session";
-export const signUp = async (state, formData) => {
+import { redirect } from 'next/navigation'
+export async function  signUp  (
+	state: unknown,
+	formData: { get: (arg0: string) => unknown }
+)  {
 	const validationResult = signupShema.safeParse({
 		username: formData.get("username"),
 		password: formData.get("password"),
@@ -37,7 +41,7 @@ export const signUp = async (state, formData) => {
 	if (userFound) {
 		return {
 			status: 409,
-			msg: "El usuario ya existe ",
+			msg: "El usuario ya esta en uso... ",
 		};
 	}
 
@@ -50,7 +54,12 @@ export const signUp = async (state, formData) => {
 		},
 	});
 
-    await createSession(user.id)
-
-
+	const cookieName =  	await createSession(user.id);
+	return {
+		status: 200,
+		user:user,
+        msg: "Usuario creado correctamente",
+        cookieName: cookieName,
+	}
 };
+

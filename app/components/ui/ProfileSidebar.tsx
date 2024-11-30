@@ -145,6 +145,7 @@ const titles = [
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
+          <div className='flex items-center gap-1' >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -160,9 +161,13 @@ const titles = [
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            Modúlo de administración
           </Typography>
+          <Link className='mx-4 ' href={"/catalog"} >Volver</Link>
+          </div>
+
         </Toolbar>
+
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
