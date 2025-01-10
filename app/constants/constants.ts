@@ -1,1 +1,0 @@
-export const ICON_WIDTH:number= 35;
