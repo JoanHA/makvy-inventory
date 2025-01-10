@@ -1,4 +1,4 @@
-import 'server-only'
+import "server-only";
 import { JWTPayload, SignJWT, jwtVerify } from "jose";
 
 import { cookies } from "next/headers";
@@ -43,17 +43,20 @@ export async function createSession(UserId: number) {
 	cookies().set(cookie.name, session, { ...cookie.options, expires });
 	redirect("/");
 }
-export async function verifySession() {
+export async function verifySession(redirecting = true) {
 	const Cookies = cookies().get(cookie.name)?.value;
 	const session = await decrypt(Cookies);
 
 	if (!session?.UserId) {
-		redirect("/login");
+		if (redirecting) {
+			redirect("/login");
+		}
+		return null
 	}
 	return { userId: session.UserId };
 }
 
 export async function deleteSession() {
-    cookies().delete(cookie.name,);
-    redirect("/login");
+	cookies().delete(cookie.name);
+	redirect("/login");
 }

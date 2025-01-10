@@ -4,7 +4,6 @@ import { decrypt } from "@/app/_lib/session";
 
 export  async function middleware(req: NextRequest) {
 	//1. check if route is protected
-	console.log("profil")
 	const protectedRoutes = ["/admin/profile"];
 	const currentPath = req.nextUrl.pathname;
 	const isProtectedRoute = protectedRoutes.includes(currentPath);
@@ -24,5 +23,5 @@ export  async function middleware(req: NextRequest) {
 }
 
 export const config = {
-	matcher: '/admin/:path*',
+	matcher: ["/admin/:path*"], // Se aplica a todas las rutas bajo /admin/
   }

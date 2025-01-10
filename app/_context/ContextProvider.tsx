@@ -18,6 +18,7 @@ export const ContextProvider = ({
 }>) => {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [user, setUser] = useState(null);
+	const [cartItems, setCartItems] = useState([])
 
 	const logOut = () => {
 		//eliminar token
@@ -36,6 +37,8 @@ export const ContextProvider = ({
 				user,
 				logOut,
 				isAuthenticated,
+				setCartItems,
+				cartItems
 			}}
 		>
 			{children}

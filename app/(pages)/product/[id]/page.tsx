@@ -11,6 +11,7 @@ import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { IoChevronBackSharp } from "react-icons/io5";
+import { AddToCart } from "../../cart/actions";
 
 export default function Page() {
   const [product, setProduct] = useState<Products>();
@@ -102,7 +103,8 @@ export default function Page() {
                     </Button>
                   </div>
                   <div>
-                    <Button
+                    <Button 
+                  onClick={()=>{AddToCart(product!)}}
                       variant="outlined"
                       size="large"
                       color="success"
