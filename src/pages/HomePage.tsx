@@ -1,14 +1,12 @@
-import Header from '@/app/_ui/Header'
+import MainCarrusel from '@/app/_ui/components/MainCarrusel'
+
 import React from 'react'
 
 function HomePage() {
   return (
-    <div>
-        <div>
-            <Header></Header>
-        </div>
-
-    </div>
+        <section className='flex  flex-col  bg-slate-300'>
+            <MainCarrusel></MainCarrusel>
+        </section>
   )
 }
 

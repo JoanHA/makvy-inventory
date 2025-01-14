@@ -6,8 +6,8 @@ import { VscSearch } from "react-icons/vsc";
 function Header() {
   const size =25;
 	return (
-		<header  className=" fixed w-full">
-			<nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 ">
+		<header  className=" sticky  top-0 left-0 right-0 z-10">
+			<nav className= "bg-white border-gray-200 px-4 lg:px-6 py-2.5 ">
 				<div className="flex flex-wrap justify-between  mx-auto max-w-screen-xl">
 					<div className="flex items-center ">
 						<a
