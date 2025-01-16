@@ -63,9 +63,7 @@ function MainCarrusel() {
 					</li>
 				</ul>
 			</div>
-			<div className="relative slider-box md:h-96">
-				{/* <!-- Item 1 --> */}
-			</div>
+		
 		</>
 	);
 }
