@@ -8,12 +8,15 @@
     overflow: hidden;
   }
 .product-slider-container{
-    display: flex;
-    padding: 0;
+    display: flex;;
     height: 100%;
     width:500%;
     flex-direction: row;
-    animation: slide 20s infinite alternate ease-in-out 
+    overflow: hidden;
+    gap: 10px;
+    transition: all 0.5s ease-in-out;
+    
+    /* animation: slideProducts 20s infinite alternate ease-in-out ; */
   }
   
   .product-slider-child{
@@ -41,19 +44,19 @@
     width: 20px
     
   }
-  @keyframes slide {
+  @keyframes slideProducts {
     
     0% { margin-left: 0; }
     20% {margin-left: 0;}
   
-    25% {margin-left: -100%;}
-    45%{margin-left: -100%;}
+    25% {margin-left: -40%;}
+    45%{margin-left: -40%;}
   
-    50% {margin-left:-200%;}
-    70% {margin-left: -200%;}
+    50% {margin-left:-80%;}
+    70% {margin-left: -80%;}
   
-    75% {margin-left:-300%}
-    100%{margin-left:-300%}
+    75% {margin-left:-100%}
+    100%{margin-left:-100%}
   }
   
 
