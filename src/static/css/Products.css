@@ -1,0 +1,63 @@
+/* product Carussell */
+
+
+.product-slider-box{
+    height: auto;
+    overflow: hidden;
+  height: 600px;
+    overflow: hidden;
+  }
+.product-slider-container{
+    display: flex;;
+    height: 100%;
+    width:500%;
+    flex-direction: row;
+    overflow: hidden;
+    gap: 10px;
+    transition: all 0.5s ease-in-out;
+    
+    /* animation: slideProducts 20s infinite alternate ease-in-out ; */
+  }
+  
+  .product-slider-child{
+    width: 100%;
+    list-style: none;
+    position: relative;
+    
+  }
+  .texto{
+    position: absolute;
+    text-align: center;
+    padding: 0 250px;
+    top: 250px;
+    color: lightblue;
+  }
+  .texto h2{
+    font-size: 45px;
+    margin-bottom: 35px;
+  
+  }
+  .product-slider-child img {
+  
+    height: 20px;
+    object-fit: cover;
+    width: 20px
+    
+  }
+  @keyframes slideProducts {
+    
+    0% { margin-left: 0; }
+    20% {margin-left: 0;}
+  
+    25% {margin-left: -40%;}
+    45%{margin-left: -40%;}
+  
+    50% {margin-left:-80%;}
+    70% {margin-left: -80%;}
+  
+    75% {margin-left:-100%}
+    100%{margin-left:-100%}
+  }
+  
+
+/* End product carrusel */

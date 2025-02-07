@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+h4 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+h5 {
+  display: block;
+  font-size: 0.83em;
+  margin-block-start: 1.67em;
+  margin-block-end: 1.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+h6 {
+  display: block;
+  font-size: 0.67em;
+  margin-block-start: 2.33em;
+  margin-block-end: 2.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+body {
+  /* color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif; */
+} 
+
+.slider-box{
+  height: auto;
+  overflow: hidden;
+height: 600px;
+  overflow: hidden;
+}
+.slider-box ul{
+  display: flex;
+  padding: 0;
+  height: 100%;
+  width:500%;
+  animation: slide 20s infinite alternate ease-in-out 
+}
+
+.slider-box li {
+  width: 100%;
+  list-style: none;
+  position: relative;
+}
+.texto{
+  position: absolute;
+  text-align: center;
+  padding: 0 250px;
+  top: 250px;
+  color: lightblue;
+}
+.texto h2{
+  font-size: 45px;
+  margin-bottom: 35px;
+
+}
+.slider-box img {
+
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  
+}
+@keyframes slide {
+  
+  0% { margin-left: 0; }
+  20% {margin-left: 0;}
+
+  25% {margin-left: -100%;}
+  45%{margin-left: -100%;}
+
+  50% {margin-left:-200%;}
+  70% {margin-left: -200%;}
+
+  75% {margin-left:-300%}
+  100%{margin-left:-300%}
+}
+
+@media (max-width:991px) {
+  
+.slider-box{
+width: 100%;
+}
+.texto {
+  top: 50px;
+  padding: 0 25px;
+
+}
+  
+}
+/* Product */
+.product-desc p {
+  /*  */
+  overflow: hidden;
+  font-size: 12px;
+  display: -webkit-box;        /* Usa un contenedor flex para soporte en navegadores */
+  -webkit-box-orient: vertical; /* Orientación vertical del contenedor flex */
+  -webkit-line-clamp: 20;  
+  line-clamp: 20;  
+  overflow: hidden;       
+  text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+  white-space: pre; /* Mantiene los saltos de línea del texto */
+  overflow-wrap: break-word; 
+}
+
+.image-list-container li {
+  cursor: pointer;
+}
+
+.main-columns-container {
+  display: flex;
+  height: auto;
+  overflow: auto;
+  flex-wrap: wrap;
+}
+.product-container {
+  flex: none;
+  width: 33.3333333333%;
+  padding: 0.8rem;
+  z-index: 1;
+}
+.product-container:hover {
+  box-shadow: 1px 2px 5px 5px#e2e2e2;
+}
+
+.product-image {
+  height: 220px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.image-wrapper img {
+  height: auto;
+
+
+  flex-shrink: 0;
+  display: block;
+  mix-blend-mode: multiply;
+  opacity: 1;
+  border-radius: 6px;
+}
+.product-content {
+  padding: 5px 15px 15px;
+}
+.product-top-content {
+  margin: 10px 0 5px;
+}
+.product-title {
+  font-weight: 500;
+  word-break: break-word;
+}
+.product-desc p {
+  max-height: 50px;
+  overflow: hidden;
+  font-size: 12px;
+  display: -webkit-box;        /* Usa un contenedor flex para soporte en navegadores */
+  -webkit-box-orient: vertical; /* Orientación vertical del contenedor flex */
+  -webkit-line-clamp: 3;  
+  line-clamp: 3;  
+  overflow: hidden;       
+  text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+}
+.product-sub-title {
+  font-size: small;
+  color: var(--secondary-title-color);
+}
+.product-price-container h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--price-color);
+}
+/* .description-container p {
+    white-space: pre; /* Mantiene los saltos de línea del texto 
+    overflow-wrap: break-word; /* Permite que las palabras largas se dividan en la línea 
+} */
