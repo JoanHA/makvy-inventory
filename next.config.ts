@@ -2,17 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'hips.hearstapps.com',
-        port: '',
-        pathname: '*',
-        search: '',
-      },
-    ],
-  },
+  images:{
+    domains: ['hips.hearstapps.com']  // Replace 'your-image-domain.com' with your actual image domain
+}
 };
 
 export default nextConfig;

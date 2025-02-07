@@ -4,34 +4,31 @@ import ProductsSkeleton from "./ProductsSkeleton";
 import Product from "./Product";
 
 function RelatedProducts() {
-	// const [products, setProducts] = useState<Array<Products>>([]);
-	// const [loading, setLoading] = useState<boolean>(true);
-	// const getProducts =  cache( async() => {
-	//   try {
-	//     const response = await axios.get("/api/products");
-	//        setProducts(response.data.products);
-	//        setLoading(false);
-	//   } catch (error) {
-	//     console.error(error);
-	//   }
-	// });
-	// useEffect(() => {
-	//   getProducts();
-	// }, []);
-
-	// console.log(products);
 	return (
-		<div className="flex flex-wrap p-5 ">
-			<div className="main-columns-container p-2">
-				{true ? (
+		// 
+			<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 justify-center">
+				{true ? (<>
 					<Product></Product>
+					<Product></Product>
+					<Product></Product>
+					<Product></Product>
+					<Product></Product>
+					<Product></Product>
+					<Product></Product>
+					<Product></Product>
+					<Product></Product>
+					<Product></Product>
+					<Product></Product>
+					<Product></Product>
+					<Product></Product>
+					</>
 				) : (
 					<div>
 						<ProductsSkeleton></ProductsSkeleton>
 					</div>
 				)}
 			</div>
-		</div>
+
 	);
 }
 

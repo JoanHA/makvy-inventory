@@ -9,9 +9,10 @@ import React from "react";
 import { CiHeart } from "react-icons/ci";
 
 function page() {
-	const desc: string = `*ASPECTOS A TENER EN CUENTA:* 
+	const desc: string = `*ASPECTOS A TENER EN CUENTA :* 
 1. Nuestras garantías únicamente son por defectos de
 fabricación, imperfecciones en cierres y herrajes,
+
 además el producto debe estar con su respectivo empaque.
 2. La garantía no cubre daños en el producto por uso
 inadecuado del cliente y/o desgaste natural del
@@ -51,7 +52,7 @@ mismo valor del comprado.`;
 							</div>
 						</div>
 					</div>
-					<div className="grow-0 flex flex-col max-w-[25%]">
+					<div className="grow-0 flex flex-col max-w-[28%]">
 						<div className="">
 							<Title>Camiseta Verde sencilla</Title>
 						</div>

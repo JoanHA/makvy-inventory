@@ -173,12 +173,12 @@ width: 100%;
 .main-columns-container {
   display: flex;
   height: auto;
-  overflow: auto;
+  /* overflow: auto; */
   flex-wrap: wrap;
 }
 .product-container {
   flex: none;
-  width: 33.3333333333%;
+  max-width: 90%;
   padding: 0.8rem;
   z-index: 1;
 }
@@ -221,13 +221,24 @@ width: 100%;
   word-break: break-word;
 }
 .product-desc p {
-  max-height: 50px;
+  max-height: 300px;
   overflow: hidden;
   font-size: 12px;
   display: -webkit-box;        /* Usa un contenedor flex para soporte en navegadores */
   -webkit-box-orient: vertical; /* Orientación vertical del contenedor flex */
-  -webkit-line-clamp: 3;  
-  line-clamp: 3;  
+  /* -webkit-line-clamp: 10;  
+  line-clamp: 10;   */
+  overflow: hidden;       
+  text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
+}
+.related-produc-desc p{
+  /* max-height: 100px; */
+  overflow: hidden;
+  font-size: 12px;
+  display: -webkit-box;        /* Usa un contenedor flex para soporte en navegadores */
+  -webkit-box-orient: vertical; /* Orientación vertical del contenedor flex */
+  -webkit-line-clamp: 4;  
+  line-clamp: 4;  
   overflow: hidden;       
   text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) */
 }
