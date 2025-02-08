@@ -1,13 +1,15 @@
+"use client"
 import React from "react";
-import { CgProfile,CgMenuCheese  } from "react-icons/cg";
+import {  CgMenuCheese } from "react-icons/cg";
 import { BsBag } from "react-icons/bs";
 import { VscSearch } from "react-icons/vsc";
+import AccountButton from "./StyleComponents/AccountButton";
 
 function Header() {
-  const size =25;
+	const size = 25;
 	return (
-		<header  className=" sticky  top-0 left-0 right-0 z-10">
-			<nav className= "bg-white border-gray-200 px-4 lg:px-6 py-2.5 ">
+		<header className=" sticky  top-0 left-0 right-0 z-10">
+			<nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 ">
 				<div className="flex flex-wrap justify-between  mx-auto max-w-screen-xl">
 					<div className="flex items-center ">
 						<a
@@ -29,29 +31,27 @@ function Header() {
 					</a>
 
 					<div
-						className=" justify-between items-center w-full lg:flex lg:w-auto lg:order-1 self-end justify-self-end w-full"
+						className=" justify-between items-center  lg:flex lg:w-auto lg:order-1 self-end justify-self-end w-full"
 						id="mobile-menu-2">
-						<div className="justify-self-end flex  gap-2">
+						<div className="justify-self-end flex items-center  gap-2">
 							<a
 								href="#"
 								className="text-gray-800  mx-1 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 lg:py-2.5 mr-2 focus:outline-none ">
-	              <	VscSearch size={size-1}/>
+								<VscSearch size={size - 1} />
 							</a>
 							<a
 								href="#"
 								className="text-gray-800 bg-primary-700 mx-1 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm py-2 lg:py-2.5 mr-2  focus:outline-none ">
-							<BsBag size={size-3}/>
+								<BsBag size={size - 3} />
 							</a>
-            
-              <a
-								href="#"
-								className="text-gray-800 bg-primary-700 mx-1 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm py-2 lg:py-2.5 mr-2  focus:outline-none ">
-							<CgProfile size={size-1}/>
-							</a>
-              <a
+
+							<div className="text-gray-800 bg-primary-700 mx-1 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm py-2 lg:py-2.5 mr-2  focus:outline-none flex ">
+							<AccountButton/>
+							</div>
+							<a
 								href="#"
 								className="text-gray-800 bg-primary-700 mx-1 flex items-center hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm+ py-2 lg:py-2.5 mr-2  focus:outline-none ">
-							<CgMenuCheese size={size}/> Menu
+								<CgMenuCheese size={size} /> Menu
 							</a>
 						</div>
 					</div>
